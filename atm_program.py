@@ -63,5 +63,7 @@ while (True):
         createCard()
     elif (main_menu == 2):
         loginExistingCard()
-    else:
+    elif (main_menu == 0):
         exit()
+    else:
+        print('Please input 0 - 2')
