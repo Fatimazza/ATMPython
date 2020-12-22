@@ -1,10 +1,11 @@
 from atm_card import AtmCard
 from customer import Customer
 
-customer1 = Customer(2222)
-print(customer1.checkPin())
-print(customer1.checkBalance())
-print(customer1.credit(600))
-print(customer1.checkBalance())
-print(customer1.debet(500))
-print(customer1.checkBalance())
+main_menus = ['Exit', 'Create an Account', 'Log into an Account']
+index_main_menu = 0
+
+for main_menu in main_menus:
+    print(str(index_main_menu) + '. ' + main_menu)
+    index_main_menu += 1
+
+print('--------------------')
