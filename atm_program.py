@@ -3,6 +3,16 @@ from customer import Customer
 
 import random
 
+
+def createCard():
+    pin = random.randint(1000, 9999)
+    atmId = 4000000000000000 + random.randint(1000, 9999)
+    atm = AtmCard(pin, atmId)
+    print('Your card has been created')
+    print('Your card number :' + str(atm.checkId()))
+    print('Your card pin: ' + str(atm.checkPin()))
+
+
 while (True):
 
     main_menus = ['Exit', 'Create an Account', 'Log into an Account']
@@ -17,7 +27,7 @@ while (True):
     main_menu = int(input('Masukkan nomer menu: '))
 
     if (main_menu == 1):
-        print('Your card has been created')
+        createCard()
     elif (main_menu == 2):
         print('Ok')
     else:
