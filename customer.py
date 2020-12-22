@@ -17,11 +17,9 @@ class Customer:
         return self.custBalance
 
     def debet(self, nominal):
-        debet = self.custBalance - nominal
-        # current custBalance hasn't updated
-        return debet
+        self.custBalance -= nominal
+        return self.custBalance
 
     def credit(self, nominal):
-        credit = self.custBalance + nominal
-        # current custBalance hasn't updated
-        return credit
+        self.custBalance += nominal
+        return self.custBalance
