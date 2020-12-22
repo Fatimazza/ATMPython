@@ -13,12 +13,33 @@ def createCard():
     print('Your card pin: ' + str(atm.checkPin()))
 
 
+def manageAccountMenu():
+    isShowAccountMenu = True
+
+    while (isShowAccountMenu):
+        account_menus = [
+            'Exit', 'Balance', 'Add Income', 'Transfer Money', 'Logout'
+        ]
+        index_account_menu = 0
+
+        print('--------------------')
+
+        for acoount_menu in account_menus:
+            print(str(index_account_menu) + '. ' + acoount_menu)
+            index_account_menu += 1
+
+        print('--------------------')
+
+        input('Masukkan nomor menu: ')
+
+
 def loginExistingCard():
     atmId = int(input('Enter your 16 digit card number: '))
     pin = int(input('Enter your 4 digit PIN: '))
     atm = AtmCard()
     if (atmId == atm.checkId() and pin == atm.checkPin()):
         print('Success')
+        manageAccountMenu()
     else:
         print('Card or PIN you have entered is wrong')
 
