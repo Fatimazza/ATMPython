@@ -13,6 +13,16 @@ def createCard():
     print('Your card pin: ' + str(atm.checkPin()))
 
 
+def loginExistingCard():
+    atmId = int(input('Enter your 16 digit card number: '))
+    pin = int(input('Enter your 4 digit PIN: '))
+    atm = AtmCard()
+    if (atmId == atm.checkId() and pin == atm.checkPin()):
+        print('Success')
+    else:
+        print('Card or PIN you have entered is wrong')
+
+
 while (True):
 
     main_menus = ['Exit', 'Create an Account', 'Log into an Account']
@@ -31,6 +41,6 @@ while (True):
     if (main_menu == 1):
         createCard()
     elif (main_menu == 2):
-        print('Ok')
+        loginExistingCard()
     else:
         exit()
