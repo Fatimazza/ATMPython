@@ -7,6 +7,12 @@ class AtmCard:
         self.defaultPin = defaultPin
         self.defaultBalance = defaultBalance
 
+    def setId(self, newId):
+        self.defaultId = newId
+
+    def setPin(self, newPin):
+        self.defaultPin = newPin
+
     def checkId(self):
         return self.defaultId
 

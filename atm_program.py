@@ -3,14 +3,17 @@ from customer import Customer
 
 import random
 
+atmUser = AtmCard()
+
 
 def createCard():
     atmId = 4000000000000000 + random.randint(1000, 9999)
     pin = random.randint(1000, 9999)
-    atm = AtmCard(atmId, pin)
+    atmUser.setId(atmId)
+    atmUser.setPin(pin)
     print('Your card has been created')
-    print('Your card number :' + str(atm.checkId()))
-    print('Your card pin: ' + str(atm.checkPin()))
+    print('Your card number :' + str(atmUser.checkId()))
+    print('Your card pin: ' + str(atmUser.checkPin()))
 
 
 def manageAccountMenu():
@@ -30,14 +33,20 @@ def manageAccountMenu():
 
         print('--------------------')
 
-        input('Masukkan nomor menu: ')
+        accountMenu = int(input('Masukkan nomor menu: '))
+
+        if (accountMenu == 0):
+            break
+        elif (accountMenu == 1):
+            print('Your balance: ' + str(atmUser.checkBalance()))
+        else:
+            print('Please input 0 - 4')
 
 
 def loginExistingCard():
     atmId = int(input('Enter your 16 digit card number: '))
     pin = int(input('Enter your 4 digit PIN: '))
-    atm = AtmCard()
-    if (atmId == atm.checkId() and pin == atm.checkPin()):
+    if (atmId == atmUser.checkId() and pin == atmUser.checkPin()):
         print('Success')
         manageAccountMenu()
     else:
