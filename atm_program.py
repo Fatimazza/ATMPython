@@ -5,6 +5,12 @@ import random
 
 atmUser = AtmCard()
 
+# Note:
+# When user not create account, login using:
+# 4000 0000 0000 0000 and PIN: 1234
+# When user create account, login using:
+# 16 digit generated card and 4 digit generated PIN
+
 
 def createCard():
     atmId = 4000000000000000 + random.randint(1000, 9999)
