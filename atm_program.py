@@ -1,6 +1,7 @@
 from atm_card import AtmCard
 
 import random
+from datetime import datetime
 
 atmUser = AtmCard()
 
@@ -21,6 +22,16 @@ def createCard():
     print('Your card pin: ' + str(atmUser.checkPin()))
 
 
+def printReceipt():
+    print('--------------------')
+    recordNo = random.randint(100000, 1000000)
+    currentDate = datetime.now()
+    currentBalance = atmUser.defaultBalance
+    print('Record No: ' + str(recordNo))
+    print('Date: ' + str(currentDate))
+    print('Balance: ' + str(currentBalance))
+
+
 def manageAccountMenu():
     isShowAccountMenu = True
 
@@ -39,6 +50,7 @@ def manageAccountMenu():
         accountMenu = int(input('Masukkan nomor menu: '))
 
         if (accountMenu == 0):
+            printReceipt()
             break
         elif (accountMenu == 1):
             print('Your balance: ' + str(atmUser.checkBalance()))
