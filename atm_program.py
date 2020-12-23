@@ -1,5 +1,4 @@
 from atm_card import AtmCard
-from customer import Customer
 
 import random
 
@@ -26,9 +25,7 @@ def manageAccountMenu():
     isShowAccountMenu = True
 
     while (isShowAccountMenu):
-        account_menus = [
-            'Exit', 'Balance', 'Add Income', 'Transfer Money', 'Logout'
-        ]
+        account_menus = ['Logout', 'Balance', 'Add Income', 'Transfer Money']
         index_account_menu = 0
 
         print('--------------------')
@@ -44,6 +41,16 @@ def manageAccountMenu():
         if (accountMenu == 0):
             break
         elif (accountMenu == 1):
+            print('Your balance: ' + str(atmUser.checkBalance()))
+        elif (accountMenu == 2):
+            income = int(input('Add your income: '))
+            atmUser.credit(income)
+            print('Add income success')
+            print('Your balance: ' + str(atmUser.checkBalance()))
+        elif (accountMenu == 3):
+            transfer = int(input('Add nominal to transfer: '))
+            atmUser.debet(transfer)
+            print('Transfer success')
             print('Your balance: ' + str(atmUser.checkBalance()))
         else:
             print('Please input 0 - 4')

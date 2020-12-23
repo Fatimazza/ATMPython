@@ -21,3 +21,11 @@ class AtmCard:
 
     def checkBalance(self):
         return self.defaultBalance
+
+    def debet(self, nominal):
+        self.defaultBalance -= nominal
+        return self.defaultBalance
+
+    def credit(self, nominal):
+        self.defaultBalance += nominal
+        return self.defaultBalance
